@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'excon'
+require 'net/http'
 require 'yaml'
 require 'active_support/all'
 
