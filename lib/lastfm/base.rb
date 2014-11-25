@@ -6,21 +6,26 @@ class LastFM
   def initialize
     if File.exist?("credentials.yml")
       @@common = YAML.load_file("credentials.yml")
-      @@url = "http://ws.audioscrobbler.com/2.0/?api_key=#{@@commn['LASTFM_APIKEY']}&"
-
+      @@url = "http://ws.audioscrobbler.com/2.0/?api_key=#{@@common["LASTFM_APIKEY"]}&"
+    end
     end
 
     def request(uri)
+      puts uri
+      puts "2"
       begin
-        reponse = Excon.get(uri)
+        response = Excon.get(uri)
         puts response.body
-
+      rescue
+        puts "FML"
     end
+  end
 
    def query(method, params)
+     puts "1"
      klass = self.class.to_s.gsub("LastFM::","").downcase
+     "#{@@url}method=#{klass}.#{method}&#{params.to_query}&format=json"
 
-     "#{@@url}method=#{klass}.#{method}&#{params.to_query}"
 
   end
 
@@ -37,4 +42,4 @@ class LastFM
   def track() @track            ||= Track.new() end
   def user() @user              ||= User.new() end
 
-end
+ end
