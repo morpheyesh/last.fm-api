@@ -1,8 +1,9 @@
 require 'rubygems'
 require 'excon'
-require 'net/http'
 require 'yaml'
 require 'active_support/all'
+require 'yajl'
+require 'yajl/json_gem'
 
 
 
@@ -21,7 +22,6 @@ require File.dirname(__FILE__) + '/lastfm/missing'
 require File.dirname(__FILE__) + '/lastfm/base'
 require File.dirname(__FILE__) + '/lastfm/artist'
 require File.dirname(__FILE__) + '/lastfm/album'
-=begin
 require File.dirname(__FILE__) + '/lastfm/auth'
 require File.dirname(__FILE__) + '/lastfm/event'
 require File.dirname(__FILE__) + '/lastfm/geo'
@@ -32,4 +32,3 @@ require File.dirname(__FILE__) + '/lastfm/tag'
 require File.dirname(__FILE__) + '/lastfm/tastometer'
 require File.dirname(__FILE__) + '/lastfm/track'
 require File.dirname(__FILE__) + '/lastfm/user'
-=end
