@@ -21,9 +21,12 @@ class LastFM
   end
 
 def from_json(input)
-  @json = ::Yajl::Parser.parse(input)
-  puts @json
+  @json = Yajl::Parser.parse(input)
+  @json
 end
+
+
+
    def query(method, params)
      klass = self.class.to_s.gsub("LastFM::","").downcase
      "#{@@url}method=#{klass}.#{method}&#{params.to_query}&format=json"
